@@ -1,0 +1,493 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/background9"
+        android:fillViewport="true"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/background"
+                android:layout_width="fill_parent"
+                android:layout_height="60dp"
+                android:background="#0000"
+                android:paddingBottom="0dp"
+
+                >
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="物联网创新设计"
+                    android:textColor="#FFF"
+                    android:textSize="25dp" />
+
+                <Button
+
+                    android:layout_centerVertical="true"
+                    android:paddingRight="10dp"
+                    android:id="@+id/showmore"
+                    android:layout_toRightOf="@+id/buttontwo"
+                    android:layout_width="25dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/backone" />
+                <Button
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="15dp"
+                    android:id="@+id/buttontwo"
+                    android:layout_width="10dp"
+                    android:layout_height="30dp"
+                    android:background="#00000000"
+                    />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/one"
+                android:layout_width="fill_parent"
+                android:layout_height="230dp"
+                android:orientation="vertical"
+                android:weightSum="5">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="温度"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/button1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="湿度"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+
+                            android:id="@+id/button2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="光照"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/button3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="输出一"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/out1"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="输出二"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/out2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:alpha="0.7"
+                            android:gravity="center_horizontal"
+                            android:paddingTop="15dp"
+                            android:text="输出三"
+                            android:textColor="#E8E8E8"
+                            android:textSize="15sp" />
+
+                        <Button
+                            android:id="@+id/out3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="@drawable/mybutton"
+                            android:paddingTop="15dp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/boder">
+
+                    <TextView
+                        android:id="@+id/cardid"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="center"
+                        android:text="卡号"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/one"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+
+                android:paddingBottom="0dp">
+
+                <TextView
+                    android:id="@+id/progressc"
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:paddingTop="10dp"
+                    android:text="舵机角度值：90"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp" />
+
+                <SeekBar
+                    android:id="@+id/steer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:max="180"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:progress="90" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:background="@drawable/mybutton"
+                    android:weightSum="2">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/mybutton">
+
+                        <Button
+                            android:id="@+id/setled"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:background="#00000000"
+                            android:text="LED"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/bpm"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/mybutton"
+                        android:text="开蜂鸣器"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/redlightset"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+
+                        android:background="@drawable/mybutton"
+                        android:text="设置红外联动"
+                        android:textColor="#E8E8E8" />
+
+                    <Button
+                        android:id="@+id/soundset"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/mybutton"
+                        android:text="设置声音联动"
+                        android:textColor="#E8E8E8" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/steerint"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="请输入舵机值"
+                        android:textColor="#FFFFFF"
+
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/cardint"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="请输入卡值"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/setallbutton"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:text="点击设置舵机和卡值"
+                    android:textColor="#FF2400" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/tempmax"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="温度上限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/tempmin"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="温度下限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/humimax"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="湿度上限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/humimin"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="湿度下限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/lightmax"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="光照上限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+
+                    <EditText
+                        android:id="@+id/lightmin"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/boder"
+                        android:gravity="center"
+                        android:hint="光照下限"
+                        android:textColor="#FFFFFF"
+                        android:textColorHint="#98FB98"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/setliandong"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mybutton"
+                    android:text="点击设置传感器上下限"
+                    android:textColor="#FF2400" />
+
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"></LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>
+

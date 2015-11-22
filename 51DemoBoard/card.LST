@@ -1,0 +1,27 @@
+C51 COMPILER V9.52.0.0   CARD                                                              08/10/2015 17:20:35 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE CARD
+OBJECT MODULE PLACED IN card.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE card.c LARGE BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <myhead.h>
+   2          
+   3          char carbuf[50] = {0};
+   4          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =     50    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
