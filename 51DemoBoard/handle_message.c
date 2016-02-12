@@ -2,49 +2,53 @@
 char send_message[30];
 int tempdegree;
 char *p;
-int android_flag = 0;
+//int android_flag = 0;
+
+int commandflag = 0;
 void handle_message()
 {
     if(strncmp(strbuf, "test", 4) == 0)
 	{
-		android_flag = 0;
-		CR = 0;  
-		sprintf(send_message, "return test\n");
+	//	android_flag = 1;
+		//CR = 0;  
+		sprintf(send_message, "*return test#\n");
 		sendstr(send_message);
 		temp_lock = 1;
+		commandflag = 1;
+		android_control_flag = 1;
     }
 	
-	if(strncmp(strbuf, "GETTEMPERATURE", strlen("GETTEMPERATURE")) == 0)
+	else if(strncmp(strbuf, "GETTEMPERATURE", strlen("GETTEMPERATURE")) == 0)
 	{
 		int i = 0;
 		gettemperature();
-		sprintf(send_message, "T = %d.%d\n", TH, TL);
+		sprintf(send_message, "*T = %d.%d#\n", TH, TL);
 		sendstr(send_message);
 		
 		if(out1 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out1 = %d\n", i);
+		sprintf(send_message, "*out1 = %d#\n", i);
 		sendstr(send_message);
 		normal_lcd1602_show();
 	}
-	if(strncmp(strbuf, "GETHUNIDITY", strlen("GETTEMPERATURE")) == 0)
+	else if(strncmp(strbuf, "GETHUNIDITY", strlen("GETTEMPERATURE")) == 0)
 	{
 		int i = 0;
 		gettemperature();
-		sprintf(send_message, "R = %d.%d\n", RH, RL);
+		sprintf(send_message, "*R = %d.%d#\n", RH, RL);
 		sendstr(send_message);
 		
 		if(out2 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out2 = %d\n", i);
+		sprintf(send_message, "*out2 = %d#\n", i);
 		sendstr(send_message);
 		normal_lcd1602_show();
 	}
-	if(strncmp(strbuf, "GETLIGHT", strlen("GETLIGHT")) == 0)
+	else if(strncmp(strbuf, "GETLIGHT", strlen("GETLIGHT")) == 0)
 	{
 		int i = 0;
 		getled();
@@ -53,11 +57,11 @@ void handle_message()
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out3 = %d\n",i);
+		sprintf(send_message, "*out3 = %d#\n",i);
 		sendstr(send_message);
 		normal_lcd1602_show();
 	}
-	if(strncmp(strbuf, "SETSTEER", strlen("SETSTEER")) == 0)
+	else if(strncmp(strbuf, "SETSTEER", strlen("SETSTEER")) == 0)
 	{
 		p = strbuf;
 		tempdegree = 0;
@@ -68,21 +72,23 @@ void handle_message()
 			tempdegree = tempdegree * 10 + (*p - '0');
 			p++;
         }
-		//while(lock_2 == 1);
-		//lock_3 = 1;
+		
+		normal_lcd1602_show();
 		
 		stop_interrupt();
 		pwm_value = turn(tempdegree);
 		InitSteering();
 		interrupt1_lock = 1;
 		interrupt3_lock = 1;
+		normal_lcd1602_show();
 		
 		delay_ms_steering(1000);
 		delay_ms_steering(1000);
 		delay_ms_steering(500);
+
 		StopSteering();
 		start_interrupt();
-		sendstr("OK\n");
+		
 		interrupt1_lock = 0;
 		interrupt3_lock = 0;
 		//android_control_lcd1602();
@@ -90,125 +96,38 @@ void handle_message()
 		
 		//lock_3 = 0;
     }
-	/*
-	if(strncmp(strbuf, "SETTEMPMAX", strlen("SETTEMPMAX")) == 0)
-	{
-	    p = strbuf;
-		tempdegree = 0;
-		p = p + 10;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		temp_max = tempdegree;
-		
-    }
 	
-	if(strncmp(strbuf, "SETTEMPMIN", strlen("SETTEMPMIN")) == 0)
-	{
-		p = strbuf;
-		tempdegree = 0;
-		p = p + 10;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		temp_min = tempdegree;
-	    
-    }
-	
-	if(strncmp(strbuf, "SETHUMIMAX", strlen("SETHUMIMAX")) == 0)
-	{
-		p = strbuf;
-		tempdegree = 0;
-		p = p + 10;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		humi_max = tempdegree;
-	    
-    }
-	
-	if(strncmp(strbuf, "SETHUMIMIN", strlen("SETHUMIMIN")) == 0)
-	{
-	    p = strbuf;
-		tempdegree = 0;
-		p = p + 10;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		humi_min = tempdegree;
-    }
-	
-	if(strncmp(strbuf, "SETLIGHTMAX", strlen("SETLIGHTMAX")) == 0)
-	{
-	    p = strbuf;
-		tempdegree = 0;
-		p = p + 11;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		light_max = tempdegree;
-    }
-	
-	if(strncmp(strbuf, "SETLIGHTMIN", strlen("SETLIGHTMIN")) == 0)
-	{
-	      p = strbuf;
-		tempdegree = 0;
-		p = p + 11;
-		
-		while(*p != '\0')
-		{
-			tempdegree = tempdegree * 10 + (*p - '0');
-			p++;
-        }
-		light_min = tempdegree;
-    }
-	*/
-	if(strncmp(strbuf, "OUT1ON", strlen("OUT1ON")) == 0)
+	else if(strncmp(strbuf, "OUT1ON", strlen("OUT1ON")) == 0)
 	{
 		out1 = 0;
     }
 	
-	if(strncmp(strbuf, "OUT2ON", strlen("OUT2ON")) == 0)
+	else if(strncmp(strbuf, "OUT2ON", strlen("OUT2ON")) == 0)
 	{
 		out2 = 0;
     }
 	
-	if(strncmp(strbuf, "OUT3ON", strlen("OUT3ON")) == 0)
+	else if(strncmp(strbuf, "OUT3ON", strlen("OUT3ON")) == 0)
 	{
 		out3 = 0;		
     }
 	
-	if(strncmp(strbuf, "OUT1OFF", strlen("OUT1OFF")) == 0)
+	else if(strncmp(strbuf, "OUT1OFF", strlen("OUT1OFF")) == 0)
 	{
 		out1 = 1;
     }
 	
-	if(strncmp(strbuf, "OUT2OFF", strlen("OUT2OFF")) == 0)
+	else if(strncmp(strbuf, "OUT2OFF", strlen("OUT2OFF")) == 0)
 	{
 		out2 = 1;
     }
 	
-	if(strncmp(strbuf, "OUT3OFF", strlen("OUT3OFF")) == 0)
+	else if(strncmp(strbuf, "OUT3OFF", strlen("OUT3OFF")) == 0)
 	{
 		out3 = 1;		
     }
 	
-	if(strncmp(strbuf, "SETRGB", strlen("SETRGB")) == 0)
+	else if(strncmp(strbuf, "SETRGB", strlen("SETRGB")) == 0)
 	{
 		red = strbuf[6] - '0';
 		green = strbuf[7]- '0';
@@ -221,17 +140,17 @@ void handle_message()
 		red = green = blue = 1;
     }
 	
-	if(strncmp(strbuf, "BPMON", strlen("BPMON")) == 0)
+	else if(strncmp(strbuf, "BPMON", strlen("BPMON")) == 0)
 	{
-		bpm = 1;	
+		bpm_on();
     }
 	
-	if(strncmp(strbuf, "BPMOFF", strlen("BPMOFF")) == 0)
+	else if(strncmp(strbuf, "BPMOFF", strlen("BPMOFF")) == 0)
 	{
-		bpm = 0;		
+		bpm_off();		
     }
 	
-	if(strncmp(strbuf, "SETMAX", strlen("SETMAX")) == 0)   //setmaxtemp1223
+	else if(strncmp(strbuf, "SETMAX", strlen("SETMAX")) == 0)   //setmaxtemp1223
 	{
 		p = strbuf;
 		p = p + 6;
@@ -293,7 +212,7 @@ void handle_message()
 		}
     }
 	
-	if(strncmp(strbuf, "SETMIN", strlen("SETMIN")) == 0)   //setmaxtemp1223
+	else if(strncmp(strbuf, "SETMIN", strlen("SETMIN")) == 0)   //setmaxtemp1223
 	{
 		p = strbuf;
 		p = p + 6;
@@ -314,7 +233,7 @@ void handle_message()
 				p++;
 			}
 			temp_min_flag = 1;
-			sprintf(send_message, "Th = %d, tempmin = %d\n", (int)TH, temp_min);
+			sprintf(send_message, "*Th = %d, tempmin = %d#\n", (int)TH, temp_min);
 			sendstr(send_message);
 		}
 		
@@ -334,7 +253,7 @@ void handle_message()
 				p++;
 			}
 			light_min_flag = 1;
-			sprintf(send_message, "T = %d\n", light_compare);
+			sprintf(send_message, "*T = %d#\n", light_compare);
 		    sendstr(send_message);
 		}
 		
@@ -359,7 +278,7 @@ void handle_message()
 	
 
 	
-	if(strncmp(strbuf, "CARDSET", strlen("CARDSET")) == 0)
+	else if(strncmp(strbuf, "CARDSET", strlen("CARDSET")) == 0)
 	{
 		char *q = setcard_buf;
 		p = strbuf;
@@ -374,7 +293,7 @@ void handle_message()
 		card_flag = 1;
     }
 	
-	if(strncmp(strbuf, "STEERSET", strlen("STEERSET")) == 0)
+	else if(strncmp(strbuf, "STEERSET", strlen("STEERSET")) == 0)
 	{
 		p = strbuf;
 		p = p + 8;
@@ -387,40 +306,40 @@ void handle_message()
 		steer_flag = 1;
     }
 	
-	if(strncmp(strbuf, "GETOUT1", strlen("GETOUT1")) == 0)
+	else if(strncmp(strbuf, "GETOUT1", strlen("GETOUT1")) == 0)
 	{
 		int i = 0;
 		if(out1 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out1 = %d\n",i);
+		sprintf(send_message, "*out1 = %d#\n",i);
 		sendstr(send_message);
     }
 	
-	if(strncmp(strbuf, "GETOUT2", strlen("GETOUT2")) == 0)
+	else if(strncmp(strbuf, "GETOUT2", strlen("GETOUT2")) == 0)
 	{
 		int i = 0;
 		if(out2 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out2 = %d\n",i);
+		sprintf(send_message, "*out2 = %d#\n",i);
 		sendstr(send_message);
     }
 	
-	if(strncmp(strbuf, "GETOUT3", strlen("GETOUT3")) == 0)
+	else if(strncmp(strbuf, "GETOUT3", strlen("GETOUT3")) == 0)
 	{
 		int i = 0;
 		if(out3 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out3 = %d\n",i);
+		sprintf(send_message, "*out3 = %d#\n",i);
 		sendstr(send_message);
     }
 	
-	if(strncmp(strbuf, "SOUNDFLAG", strlen("SOUNDFLAG")) == 0)
+	else if(strncmp(strbuf, "SOUNDFLAG", strlen("SOUNDFLAG")) == 0)
 	{
 		p = strbuf + 9;
 		if(*p == '1')
@@ -429,129 +348,228 @@ void handle_message()
 			sound_flag = 0;
     }
 	
-	if(strncmp(strbuf, "LIGHTFLAG", strlen("LIGHTFLAG")) == 0)
+	else if(strncmp(strbuf, "LIGHTFLAG", strlen("LIGHTFLAG")) == 0)
 	{
 		p = strbuf + 9;
 		if(*p == '1')
 			redlight_flag = 1;
 		if(*p == '0')
+		{
 			redlight_flag = 0;
+			bpm_off();
+		}
     }
 	
-	if(strncmp(strbuf, "GETREDLIGHT", strlen("GETREDLIGHT")) == 0)
+	else if(strncmp(strbuf, "GETREDLIGHT", strlen("GETREDLIGHT")) == 0)
 	{
 		int i = 0;
 		if(redlight_flag == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "redlight = %d\n",i);
+		sprintf(send_message, "*redlight = %d#\n",i);
 		sendstr(send_message);
     }
 	
-	if(strncmp(strbuf, "GETSOUNDFLAG", strlen("GETSOUNDFLAG")) == 0)
+	else if(strncmp(strbuf, "GETSOUNDFLAG", strlen("GETSOUNDFLAG")) == 0)
 	{
 		int i = 0;
 		if(sound_flag == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "sound = %d\n",i);
+		sprintf(send_message, "*sound = %d#\n",i);
 		sendstr(send_message);
     }
 	
-	if(strncmp(strbuf, "GETALLFLAGINIT", strlen("GETALLFLAGINIT")) == 0)
+	else if(strncmp(strbuf, "GETALLFLAGINIT", strlen("GETALLFLAGINIT")) == 0)
 	{
 	    int i = 0;
 		int rcc,gcc,bcc;
-		int bpmcc;
-		android_flag = 1;
-      //  android_control_lcd1602();
-		CR = 0;  
 		gettemperature();
-		sprintf(send_message, "T = %d.%d\n", TH, TL);
+	//	CR = 0;
+		sprintf(send_message, "*T = %d.%d#\n", TH, TL);
 		sendstr(send_message);
-		Delay18ms();
-		sprintf(send_message, "R = %d.%d\n", RH, RL);
+	//	Delay18ms();
+		sprintf(send_message, "*R = %d.%d#\n", RH, RL);
 		sendstr(send_message);
-		Delay18ms();
+	//	Delay18ms();
+	
 		getled();
+		normal_lcd1602_show();
 		sendstr(ledstr);
-		Delay18ms();
+	//	Delay18ms();
 		/***********out1***********/
 		if(out1 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out1 = %d\n", i);
+		sprintf(send_message, "*out1 = %d#\n", i);
 		sendstr(send_message);
-		Delay18ms();
+	//	Delay18ms();
+	
 		/***********out2***********/
 		if(out2 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out2 = %d\n", i);
+		sprintf(send_message, "*out2 = %d#\n", i);
 		sendstr(send_message);
-		Delay18ms();
+	//	Delay18ms();
+	
 		/***********out3***********/
 		if(out3 == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "out3 = %d\n",i);
+		sprintf(send_message, "*out3 = %d#\n",i);
 		sendstr(send_message);
-		Delay18ms();
+	//	Delay18ms();
+	
 		/*********led******************/
 		
 		if(red == 0) rcc = 0; else rcc = 1;
 		if(green == 0) gcc = 0; else gcc = 1;
 		if(blue == 0) bcc = 0; else bcc = 1;
-		sprintf(send_message, "RGB = %d%d%d\n", rcc, gcc ,bcc);
+		sprintf(send_message, "*RGB = %c%c%c#\n", led_set[0], led_set[1] ,led_set[2]);
 		sendstr(send_message);
-		Delay18ms();
+		
+	//	Delay18ms();
+	
 		/**************bpm****************/
-		if(bpm == 1)
-			bpmcc = 1;
-		else 
-			bpmcc = 0;
-		sprintf(send_message, "bpm = %d\n", bpmcc);
+	
+		sprintf(send_message, "*bpm = %d#\n", bpm_flag);
 		sendstr(send_message);
-		Delay18ms();
+	//	Delay18ms();
+	
 		/**********************soundflag*************/
 		if(sound_flag == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "sound = %d\n",i);
+		sprintf(send_message, "*sound = %d#\n",i);
 		sendstr(send_message);
+
 		/*******************redlight**************/
 		if(redlight_flag == 1)
 			i = 1;
 		else 
 			i = 0;
-		sprintf(send_message, "redlight = %d\n",i);
-		sendstr(send_message);
-		Delay18ms();
-		sprintf(send_message, "REFRESHOK\n");
+		sprintf(send_message, "*redlight = %d#\n",i);
 		sendstr(send_message);
 
+	
+		sprintf(send_message, "*REFRESHOK#\n");
+		sendstr(send_message);
+		timeoutflag = 0;
+
+	
+
     }
-	if(strncmp(strbuf, "EXIT", strlen("EXIT")) == 0)
+	else if(strncmp(strbuf, "GETALLSTATE", strlen("GETALLSTATE")) == 0)
 	{
-	    sendstr("EXITOK\n");
-		PCA_init();
-		bpm = 1;
-		Delay500ms();
-		bpm = 0;
-		android_flag = 0;
+	    int i = 0;
+		int rcc,gcc,bcc;
+			gettemperature();
+	//	CR = 0;
+		//android_flag = 1;
+
+		sprintf(send_message, "*T = %d.%d#\n", TH, TL);
+		sendstr(send_message);
+
+		sprintf(send_message, "*R = %d.%d#\n", RH, RL);
+		sendstr(send_message);
+
+			getled();
 		normal_lcd1602_show();
+		sendstr(ledstr);
+
+
+		/***********out1***********/
+		if(out1 == 1)
+			i = 1;
+		else 
+			i = 0;
+		sprintf(send_message, "*out1 = %d#\n", i);
+		sendstr(send_message);
+	
+		/***********out2***********/
+		if(out2 == 1)
+			i = 1;
+		else 
+			i = 0;
+		sprintf(send_message, "*out2 = %d#\n", i);
+		sendstr(send_message);
+	
+		/***********out3***********/
+		if(out3 == 1)
+			i = 1;
+		else 
+			i = 0;
+		sprintf(send_message, "*out3 = %d#\n",i);
+		sendstr(send_message);
+	
+		/*********led******************/
+		
+		if(red == 0) rcc = 0; else rcc = 1;
+		if(green == 0) gcc = 0; else gcc = 1;
+		if(blue == 0) bcc = 0; else bcc = 1;
+		sprintf(send_message, "*RGB = %c%c%c#\n", led_set[0], led_set[1] ,led_set[2]);
+		sendstr(send_message);
+		
+	
+		/**************bpm****************/
+	
+		sprintf(send_message, "*bpm = %d#\n", bpm_flag);
+		sendstr(send_message);
+	
+		/**********************soundflag*************/
+		if(sound_flag == 1)
+			i = 1;
+		else 
+			i = 0;
+		sprintf(send_message, "*sound = %d#\n",i);
+		sendstr(send_message);
+		
+		/*******************redlight**************/
+		if(redlight_flag == 1)
+			i = 1;
+		else 
+			i = 0;
+		sprintf(send_message, "*redlight = %d#\n",i);
+		sendstr(send_message);
+		timeoutflag = 0;
+
     }
-	if(strncmp(strbuf, "SETMYLED", strlen("SETMYLED")) == 0)
+	else if(strncmp(strbuf, "EXIT", strlen("EXIT")) == 0)
 	{
+	    sendstr("*EXITOK#\n");
+	//	PCA_init();
+		bpm_on();
+		Delay500ms();
+		bpm_off();
+	
+		normal_lcd1602_show();
+    }		
+	else if(strncmp(strbuf, "SETMYLED", strlen("SETMYLED")) == 0)
+	{
+	
 		p = strbuf + 8;
 		led_set[0] = *p;
 		led_set[1] = *(p + 1);
 		led_set[2] = *(p + 2);
+		sprintf(send_message, "*rgb:%c%c%c#\n", led_set[0], led_set[1], led_set[2]);
+		sendstr(send_message);
+		
+		sendstr(send_message);
 	}
+	else 
+	{
+	    sprintf(send_message,"*Error Code:%s#\n",strbuf);
+		sendstr(send_message);
+	}			  
+
+	sprintf(send_message, "*Command Done.#\n");
+	sendstr(send_message);
+
 }

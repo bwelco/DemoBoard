@@ -1,7 +1,7 @@
-C51 COMPILER V9.52.0.0   LIGHT                                                             09/15/2015 14:57:01 PAGE 1   
+C51 COMPILER V9.00   LIGHT                                                                 02/12/2016 18:09:30 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LIGHT
+C51 COMPILER V9.00, COMPILATION OF MODULE LIGHT
 OBJECT MODULE PLACED IN light.OBJ
 COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE light.c LARGE BROWSE DEBUG OBJECTEXTEND
 
@@ -62,7 +62,7 @@ line level    source
   53          不同的工作环境,需要调整此函数
   54          当改用1T的MCU时,请调整此延时函数
   55          **************************************/
-C51 COMPILER V9.52.0.0   LIGHT                                                             09/15/2015 14:57:01 PAGE 2   
+C51 COMPILER V9.00   LIGHT                                                                 02/12/2016 18:09:30 PAGE 2   
 
   56          void Delay5ms()
   57          {
@@ -126,7 +126,7 @@ line level    source
  115          /**************************************
  116          向IIC总线发送一个字节数据
  117          **************************************/
-C51 COMPILER V9.52.0.0   LIGHT                                                             09/15/2015 14:57:01 PAGE 3   
+C51 COMPILER V9.00   LIGHT                                                                 02/12/2016 18:09:30 PAGE 3   
 
  118          void BH1750_SendByte(BYTE dat)
  119          {
@@ -190,7 +190,7 @@ line level    source
  177                  BH1750_Stop();                           //停止信号
  178              return REG_data; 
  179          }
-C51 COMPILER V9.52.0.0   LIGHT                                                             09/15/2015 14:57:01 PAGE 4   
+C51 COMPILER V9.00   LIGHT                                                                 02/12/2016 18:09:30 PAGE 4   
 
  180          */
  181          //*********************************************************
@@ -243,7 +243,7 @@ line level    source
  228   1      
  229   1          conversion(temp);               //计算数据和显示
  230   1              light_compare = (wan-'0') * 10000 + (qian-'0') * 1000 + (bai-'0') * 100 + (shi-'0') * 10 + (ge-'0');
- 231   1              sprintf(ledstr, "light = %d\n",light_compare);
+ 231   1              sprintf(ledstr, "*light = %d#\n",light_compare);
  232   1          sprintf(ledstr2, "Light = %d", light_compare);
  233   1      }
  234          
@@ -251,10 +251,10 @@ line level    source
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    628    ----
-   CONSTANT SIZE    =     23    ----
+   CONSTANT SIZE    =     25    ----
    XDATA SIZE       =    117    ----
    PDATA SIZE       =   ----    ----
-C51 COMPILER V9.52.0.0   LIGHT                                                             09/15/2015 14:57:01 PAGE 5   
+C51 COMPILER V9.00   LIGHT                                                                 02/12/2016 18:09:30 PAGE 5   
 
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

@@ -18,7 +18,7 @@ public class GetThread implements Runnable{
     public void run() {
         try {
             BlueToothSocket.handle_mes("GETALLFLAGINIT*");
-            Thread.sleep(5000);
+            Thread.sleep(1000);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -29,41 +29,13 @@ public class GetThread implements Runnable{
         while(true) {
 
             try {
-                BlueToothSocket.handle_mes("GETTEMPERATURE*");
+                BlueToothSocket.handle_mes("GETALLSTATE*");
+                Thread.sleep(1000);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
-            try {
-                if(first == false)
-                    Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
-            try {
-                BlueToothSocket.handle_mes("GETHUNIDITY*");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                if(first == false)
-                    Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                BlueToothSocket.handle_mes("GETLIGHT*");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                if(first == false)
-                    Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            first = false;
         }
     }
 }

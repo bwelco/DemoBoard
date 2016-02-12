@@ -1,7 +1,7 @@
-C51 COMPILER V9.52.0.0   MAIN                                                              09/15/2015 14:57:01 PAGE 1   
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN main.OBJ
 COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c LARGE BROWSE DEBUG OBJECTEXTEND
 
@@ -19,7 +19,7 @@ line level    source
   10          int card_id_posi = 0;
   11          char cardid[20] = {0};
   12          char cardid_temp[20];
-  13          
+  13          int card_id_count_flag = 0;
   14          char tab1[20];
   15          char tab2[20];
   16          
@@ -32,277 +32,295 @@ line level    source
   23          
   24          int temp_max_flag = 0;
   25          int temp_min_flag = 0;
-  26          
-  27          int light_max_flag = 0;
-  28          int light_min_flag = 0;
-  29          
-  30          int humi_max_flag = 0;
-  31          int humi_min_flag = 0;
-  32          
-  33          int redlight_flag = 0;
-  34          int sound_flag = 0;
-  35          
-  36          int steer_flag = 0;
-  37          int card_flag = 0;
-  38          char led_set[4];
-  39          char setcard_buf[20];
-  40          int steer_degree = 0;
-  41          
-  42          int lock_2 = 0;
-  43          int lock_3 = 0;
-  44          int card_flag_c = 0;
-  45          int delay_flag = 0;
-  46          int testflag = 0;
-  47          int main()
-  48          {       
-  49   1              bpm = 0;
-  50   1          system_init();      
-  51   1              sendstr("Programme starting...\n");
-  52   1              
-  53   1              while(1)
-  54   1              {               
-  55   2                      while(recv_lock != 1)
-C51 COMPILER V9.52.0.0   MAIN                                                              09/15/2015 14:57:01 PAGE 2   
+  26          int android_control_flag = 0;
+  27          int timeoutflag = 0;
+  28          
+  29          int light_max_flag = 0;
+  30          int light_min_flag = 0;
+  31          
+  32          int humi_max_flag = 0;
+  33          int humi_min_flag = 0;
+  34          
+  35          int redlight_flag = 0;
+  36          int sound_flag = 0;
+  37          
+  38          int steer_flag = 0;
+  39          int card_flag = 0;
+  40          char led_set[4];
+  41          char setcard_buf[15];
+  42          int steer_degree = 0;
+  43          
+  44          int lock_2 = 0;
+  45          int lock_3 = 0;
+  46          int card_flag_c = 0;
+  47          int delay_flag = 0;
+  48          int testflag = 0;
+  49          
+  50          char Sys_init_info[100] ={ "51 Demo Board\r\n"  
+  51                                                             "Copyright (c) 2016 bwelco <1143955880@qq.com>\r\n"     
+  52                                                             "Build Date 2016-01-30\r\n"     
+  53                                                             "Version 1.0\r\n"                     };
+  54          int main()
+  55          {       
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 2   
 
-  56   2                      {
-  57   3                              if(redlight_flag == 1)
-  58   3                              {
-  59   4                                      if(redlight == 1)
-  60   4                                          bpm = 1;
-  61   4                                      else
-  62   4                                              bpm = 0;
-  63   4                              }
-  64   3                              if(mykey == 0)
-  65   3                              {
-  66   4                                      //sound_delay();
-  67   4                                      if(mykey == 0)
-  68   4                                      {
-  69   5                                              while(lock_2 == 1);
-  70   5                                              lock_3 = 1;
-  71   5                                              
-  72   5                                              bpm = 1;
-  73   5                                              stop_interrupt();
-  74   5                                              pwm_value = turn(90);
-  75   5                                              InitSteering();
-  76   5                                              interrupt1_lock = 1;
-  77   5                                              interrupt3_lock = 1;
-  78   5                                              
-  79   5                                              delay_ms_steering(1000);
-  80   5                                              delay_ms_steering(1000);
-  81   5                                              delay_ms_steering(500);
-  82   5                                              StopSteering();
-  83   5                                              start_interrupt();
-  84   5                                              sendstr("OK\n");
-  85   5                                              interrupt1_lock = 0;
-  86   5                                              interrupt3_lock = 0;
-  87   5                                              bpm = 0;
-  88   5                                              
-  89   5                                              lock_3 = 0;
-  90   5                                      }
-  91   4                              }
-  92   3                              if(sound_key == 0 && sound_flag == 1)
-  93   3                              {
-  94   4                                      //sound_delay();
-  95   4                                      if(sound_key == 0)
-  96   4                                      {
-  97   5                                      //      out1 = 0;
-  98   5                                      //      sprintf(send_message, "out1 = 0\n");
-  99   5                                      //      sendstr(send_message);
- 100   5                                      //      sound_key = 1;
- 101   5                                              
- 102   5                                              if(testflag == 0)
- 103   5                                              {
- 104   6                                                      out1 = 0;
- 105   6                                                  sprintf(send_message, "out1 = 0\n");
- 106   6                                                  sendstr(send_message);
- 107   6                                                  sound_key = 1;
- 108   6                                                      testflag = 1;
- 109   6                                                      continue;
- 110   6                                              }
- 111   5                                              if(testflag == 1)
- 112   5                                              {
- 113   6                                                      out1 = 1;
- 114   6                                                  sprintf(send_message, "out1 = 1\n");
- 115   6                                                  sendstr(send_message);
- 116   6                                                  sound_key = 1;
- 117   6                                                      testflag = 0;
-C51 COMPILER V9.52.0.0   MAIN                                                              09/15/2015 14:57:01 PAGE 3   
+  56   1              bpm_off();
+  57   1          system_init();      
+  58   1              sendstr(Sys_init_info);
+  59   1              sendstr("Programme Init Success. Baud:9600\n\t");
+  60   1              led_set[0] = '1';
+  61   1              led_set[1] = '1';
+  62   1              led_set[2] = '1';
+  63   1              while(1)
+  64   1              {               
+  65   2                      while(recv_lock != 1)
+  66   2                      {
+  67   3                              /*
+  68   3                                      红外联动蜂鸣器：模拟家庭安全卫士
+  69   3                                      人体红外检测到人                     蜂鸣器开
+  70   3                                      人体红外未检测到人                   蜂鸣器关      
+  71   3                              */
+  72   3                              if(redlight_flag == 1)
+  73   3                              {
+  74   4                                      if(redlight == 1)
+  75   4                                          bpm_on();
+  76   4                                      else
+  77   4                                              bpm_off();
+  78   4                              }
+  79   3      
+  80   3                              /* 板子上的按键按下的时候，将舵机复位成90°*/
+  81   3                              if(mykey == 0)
+  82   3                              {
+  83   4                                      normal_lcd1602_show();
+  84   4                                      while(lock_2 == 1);
+  85   4                                      lock_3 = 1;
+  86   4                                      
+  87   4                                      bpm_on();
+  88   4                                      stop_interrupt();
+  89   4                                      pwm_value = turn(90);
+  90   4                                      InitSteering();
+  91   4                                      interrupt1_lock = 1;
+  92   4                                      interrupt3_lock = 1;
+  93   4                                      normal_lcd1602_show();
+  94   4                                      
+  95   4                                      delay_ms_steering(1000);
+  96   4                                      delay_ms_steering(1000);
+  97   4                                      delay_ms_steering(500);
+  98   4                                      StopSteering();
+  99   4                                      start_interrupt();
+ 100   4                                      sendstr("OK\n");
+ 101   4                                      interrupt1_lock = 0;
+ 102   4                                      interrupt3_lock = 0;
+ 103   4                                      bpm_off();
+ 104   4                                                                      
+ 105   4                                      lock_3 = 0;
+ 106   4                                      normal_lcd1602_show();
+ 107   4                                      
+ 108   4                              }
+ 109   3      
+ 110   3                              /*      
+ 111   3                                      声音联动：模拟声控开关
+ 112   3                                      声音值到达特定值（电位器可调）       输出三开
+ 113   3                                      声音值再次到达特定值（电位器可调）   输出三关
+ 114   3                               */
+ 115   3                              if(sound_key == 0 && sound_flag == 1)              //声控开关
+ 116   3                              {
+ 117   4                                      if(testflag == 0)
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 3   
 
- 118   6                                                      continue;
- 119   6                                              }
- 120   5                                              /*if(testflag == 0)
- 121   5                                              {
- 122   5                                                      red = led_set[0] - '0';
- 123   5                                                      green = led_set[1]- '0';
- 124   5                                                      blue = led_set[2] - '0';        
- 125   5                                                      testflag = 1;
- 126   5                                                      delay_ms_steering(1000);
- 127   5                                              //      delay_ms_steering(1000);
- 128   5                                                      delay_ms_steering(500);
- 129   5                                              }
- 130   5                                              
- 131   5                                              if(testflag == 1)
- 132   5                                              {
- 133   5                                                      red = 1;
- 134   5                                                      green = 1;
- 135   5                                                      blue = 1;       
- 136   5                                                      testflag = 0;
- 137   5                                                      delay_ms_steering(1000);
- 138   5                                                      //delay_ms_steering(1000);
- 139   5                                                      delay_ms_steering(500);
- 140   5                                              }*/
- 141   5                                      }
- 142   4                                      
- 143   4                  }
- 144   3                              
- 145   3                              if(temp_min_flag == 1 && temp_min > (int)TH)
- 146   3                              {
- 147   4                                      out1 = 0;
- 148   4                                      sprintf(send_message, "out1 = 0\n");    //温度 < 下线值  输出1开
- 149   4                                      sendstr(send_message);
- 150   4                              }
- 151   3                              
- 152   3                              
- 153   3                              if(temp_max_flag == 1 && (int)TH > temp_max)
- 154   3                              {
- 155   4                                      out1 = 1;
- 156   4                                      sprintf(send_message, "out1 = 1\n");    //温度 > 上限值  输出1关
- 157   4                                      sendstr(send_message);
- 158   4                              }
- 159   3                              
- 160   3                              if(humi_max_flag == 1 && (int)RH > humi_max)
- 161   3                              {
- 162   4                                      out2 = 0;
- 163   4                                      sprintf(send_message, "out2 = 1\n");    //湿度 > 上限值  输出2关
- 164   4                                      sendstr(send_message);
- 165   4                              }
- 166   3                              
- 167   3                              if(humi_min_flag == 1 && (int)RH < humi_min)
- 168   3                              {
- 169   4                                      out2 = 1;
- 170   4                                      sprintf(send_message, "out2 = 0\n");    //湿度 < 下限值  输出2开
- 171   4                                      sendstr(send_message);
- 172   4                              }
- 173   3                              
- 174   3                              if(light_min_flag == 1 && light_compare < light_min)
- 175   3                              {
- 176   4                                      out3 = 0;
- 177   4                                      sprintf(send_message, "out3 = 0\n");    //光照 < 下限值  输出3开
- 178   4                                      sendstr(send_message);
- 179   4                                      
-C51 COMPILER V9.52.0.0   MAIN                                                              09/15/2015 14:57:01 PAGE 4   
+ 118   4                                      {
+ 119   5                                              out3 = 0;
+ 120   5                                          sprintf(send_message, "out3 = 0\n");
+ 121   5                                          sendstr(send_message);
+ 122   5      
+ 123   5                                              /*声控开关接收延时*/
+ 124   5                                              delay_ms_steering(1000);
+ 125   5                                              delay_ms_steering(1000);
+ 126   5                                              delay_ms_steering(500);
+ 127   5      
+ 128   5                                              testflag = 1;
+ 129   5                                      
+ 130   5                                      }
+ 131   4                                      else if(testflag == 1)
+ 132   4                                      {
+ 133   5                                              out3 = 1;
+ 134   5                                          sprintf(send_message, "out3 = 1\n");
+ 135   5                                          sendstr(send_message);
+ 136   5      
+ 137   5                                                      /*声控开关接收延时*/
+ 138   5                                              delay_ms_steering(1000);
+ 139   5                                              delay_ms_steering(1000);
+ 140   5                                              delay_ms_steering(500);
+ 141   5                                         
+ 142   5                                              testflag = 0;
+ 143   5                                      
+ 144   5                                      }
+ 145   4                              
+ 146   4                  }
+ 147   3      
+ 148   3                              /*
+ 149   3                                      温度联动输出一：模拟空调制热
+ 150   3                                  当前温度值 < 下限值                 输出一开
+ 151   3                                  当前温度值 > 上限值                 输出一关
+ 152   3                              */
+ 153   3                              
+ 154   3                              if(temp_min_flag == 1 && temp_min > (int)TH)
+ 155   3                              {
+ 156   4                                      out1 = 0;
+ 157   4                                      sprintf(send_message, "out1 = 0\n");    //温度 < 下线值  输出1开
+ 158   4                                      sendstr(send_message);
+ 159   4                              }
+ 160   3                              
+ 161   3                              
+ 162   3                              if(temp_max_flag == 1 && (int)TH > temp_max)
+ 163   3                              {
+ 164   4                                      out1 = 1;
+ 165   4                                      sprintf(send_message, "out1 = 1\n");    //温度 > 上限值  输出1关
+ 166   4                                      sendstr(send_message);
+ 167   4                              }
+ 168   3      
+ 169   3                              /*
+ 170   3                                      湿度联动输出二：模拟排湿风扇
+ 171   3                              当前湿度值 < 下限值                 输出二关
+ 172   3                              当前湿度值 > 上限值                 输出二开                            
+ 173   3                              */
+ 174   3                              
+ 175   3                              if(humi_max_flag == 1 && (int)RH > humi_max)
+ 176   3                              {
+ 177   4                                      out2 = 0;
+ 178   4                                      sprintf(send_message, "out2 = 1\n");    //湿度 > 上限值  输出2关
+ 179   4                                      sendstr(send_message);
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 4   
 
- 180   4                                      red = led_set[0] - '0';
- 181   4                              green = led_set[1]- '0';
- 182   4                              blue = led_set[2] - '0';                
- 183   4                              }
- 184   3                              
- 185   3                              if(light_max_flag == 1 && light_compare > light_max)
- 186   3                              {
- 187   4                                      out3 = 1;
- 188   4                                      sprintf(send_message, "out3 = 1\n");    //光照 > 上限值  输出3关
- 189   4                                      sendstr(send_message);
- 190   4                                      
- 191   4                                      red = 1;
- 192   4                              green = 1;
- 193   4                              blue = 1;       
- 194   4                              }
- 195   3                              
- 196   3                              //if(card_flag_c == 1)
- 197   3                              //{
- 198   3                              //      //android_control_lcd1602();
- 199   3                              //      card_flag_c = 0;
- 200   3                              //}
- 201   3                              
- 202   3                              //if(android_flag == 0)
- 203   3                              //{
- 204   3                              //      normal_lcd1602_show();
- 205   3                              //}
- 206   3                              /*
- 207   3                              if(delay_flag == 1 && flag2 == 0)
- 208   3                              {
- 209   3                                      CR = 0;
- 210   3                                      IE2  =  IE2 | 0X00;
- 211   3                                      normal_lcd1602_show();
- 212   3                                      delay_ms_steering(1000);
- 213   3                                      delay_ms_steering(1000);
- 214   3                                      delay_ms_steering(500);
- 215   3                                      delay_flag = 0;
- 216   3                                      IE2  =  IE2 | 0X01;
- 217   3                                      PCA_init();
- 218   3                              }
+ 180   4                              }
+ 181   3                              
+ 182   3                              if(humi_min_flag == 1 && (int)RH < humi_min)
+ 183   3                              {
+ 184   4                                      out2 = 1;
+ 185   4                                      sprintf(send_message, "out2 = 0\n");    //湿度 < 下限值  输出2开
+ 186   4                                      sendstr(send_message);
+ 187   4                              }
+ 188   3      
+ 189   3                              /*
+ 190   3                                      光照联动LED：模拟自动路灯
+ 191   3                              当前光照值 < 下限值                 LED开
+ 192   3                              当前光照值 > 上限值                 LED关                        
+ 193   3                              */
+ 194   3                              
+ 195   3                              if(light_min_flag == 1 && light_compare < light_min)
+ 196   3                              {
+ 197   4                                      //out3 = 0;
+ 198   4                                      //sprintf(send_message, "out3 = 0\n");    //光照 < 下限值  输出3开
+ 199   4                              //      sendstr(send_message);
+ 200   4                                      
+ 201   4                                      red = led_set[0] - '0';
+ 202   4                              green = led_set[1]- '0';
+ 203   4                              blue = led_set[2] - '0';                
+ 204   4                              }
+ 205   3                              
+ 206   3                              if(light_max_flag == 1 && light_compare > light_max)
+ 207   3                              {
+ 208   4                              //      out3 = 1;
+ 209   4                              //      sprintf(send_message, "out3 = 1\n");    //光照 > 上限值  输出3关
+ 210   4                              //      sendstr(send_message);
+ 211   4                                      
+ 212   4                                      red = 1;
+ 213   4                              green = 1;
+ 214   4                              blue = 1;       
+ 215   4                              }
+ 216   3      
+ 217   3                              /*
+ 218   3                                   检测到RFID读卡器读取中断，向上位机传输卡号
  219   3                              */
- 220   3                              if(flag2 == 1)
- 221   3                              {
- 222   4                                      if(android_flag == 1)
- 223   4                                      {
- 224   5                                              sprintf(send_message, "card id = %s\n", cardid);
- 225   5                                              sendstr(send_message);
- 226   5                                      }
- 227   4                                      if(strcmp(cardid, setcard_buf) != 0)
- 228   4                                      {
- 229   5                                              continue;
+ 220   3      
+ 221   3                              if(flag2 == 1)
+ 222   3                              {
+ 223   4                                      /* 第一次,往cardid_temp缓冲区里面写值,并发送 */
+ 224   4                                      if(card_id_count_flag == 0)                
+ 225   4                                      {
+ 226   5                                              strcpy(cardid_temp, cardid);
+ 227   5                                              card_id_count_flag++;
+ 228   5                                              sprintf(send_message, "*card id = %s#\n", cardid);
+ 229   5                                              sendstr(send_message);
  230   5                                      }
- 231   4                                      if(steer_flag == 1 && card_flag == 1 && 
- 232   4                                              (strcmp(cardid, setcard_buf) == 0))
+ 231   4                                      /* 跟之前的缓冲区卡号不一样     */
+ 232   4                                      if(strcmp(cardid_temp, cardid) != 0)   
  233   4                                      {
- 234   5                                              while(lock_2 == 1);
- 235   5                                              lock_3 = 1;
- 236   5                                              
- 237   5                                              bpm = 1;
- 238   5                                              stop_interrupt();
- 239   5                                              pwm_value = turn(steer_degree);
- 240   5                                              InitSteering();
- 241   5                                              interrupt1_lock = 1;
-C51 COMPILER V9.52.0.0   MAIN                                                              09/15/2015 14:57:01 PAGE 5   
+ 234   5                                              sprintf(send_message, "*card id = %s#\n", cardid);
+ 235   5                                              sendstr(send_message);
+ 236   5                                              strcpy(cardid_temp, cardid);
+ 237   5                                      }
+ 238   4                              
+ 239   4                                      /* 卡号不匹配 */
+ 240   4                                      if(strcmp(cardid, setcard_buf) != 0)
+ 241   4                                      {
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 5   
 
- 242   5                                              interrupt3_lock = 1;
- 243   5                                              
- 244   5                                              delay_ms_steering(1000);
- 245   5                                              delay_ms_steering(1000);
- 246   5                                              delay_ms_steering(500);
- 247   5                                              StopSteering();
- 248   5                                              start_interrupt();
- 249   5                                              sendstr("OK\n");
- 250   5                                              interrupt1_lock = 0;
- 251   5                                              interrupt3_lock = 0;
- 252   5                                              bpm = 0;
- 253   5                                              
- 254   5                                              lock_3 = 0;
- 255   5                                              
- 256   5                      }
- 257   4                                      stop_interrupt();
- 258   4                              //      Delay500ms();
- 259   4                                      //Delay500ms();
- 260   4                                      
- 261   4                                      while(S2CON&S2RI)
- 262   4                                      {
- 263   5                                              S2CON&=~S2RI;
- 264   5                                              temp2=S2BUF;
- 265   5                                      }
- 266   4                                      flag2 = 0;
- 267   4                                      start_interrupt();
- 268   4                                      
- 269   4                              }
- 270   3              }
- 271   2                      handle_message();
- 272   2                      recv_lock = 0;
- 273   2                      
- 274   2              }
- 275   1      }
- 276          
- 277          void sound_delay(unsigned int z)
- 278          {                                                                                                                                                                                          
- 279   1          unsigned int i,j;
- 280   1          for(i=z;i>0;i--)
- 281   1              for(j=110;j>0;j--);
- 282   1      } 
+ 242   5                                              continue;
+ 243   5                                      }
+ 244   4      
+ 245   4                                      /* 卡号匹配并且卡值设置打开 */
+ 246   4                                      if(steer_flag == 1 && card_flag == 1 && 
+ 247   4                                              (strcmp(cardid, setcard_buf) == 0))
+ 248   4                                      {
+ 249   5                                              normal_lcd1602_show();
+ 250   5                                              while(lock_2 == 1);
+ 251   5                                              lock_3 = 1;
+ 252   5                                              
+ 253   5                                              bpm_on();
+ 254   5                                              stop_interrupt();
+ 255   5                                              pwm_value = turn(steer_degree);
+ 256   5                                              InitSteering();
+ 257   5                                              interrupt1_lock = 1;
+ 258   5                                              interrupt3_lock = 1;
+ 259   5                                              normal_lcd1602_show();
+ 260   5                                              
+ 261   5                                              delay_ms_steering(1000);
+ 262   5                                              delay_ms_steering(1000);
+ 263   5                                              delay_ms_steering(500);
+ 264   5                                              StopSteering();
+ 265   5                                              start_interrupt();
+ 266   5                                              sendstr("OK\n");
+ 267   5                                              interrupt1_lock = 0;
+ 268   5                                              interrupt3_lock = 0;
+ 269   5                                              bpm_off();
+ 270   5                                              
+ 271   5                                              lock_3 = 0;
+ 272   5                                              normal_lcd1602_show();;
+ 273   5                                              
+ 274   5                      }
+ 275   4                                      stop_interrupt();               
+ 276   4                              /* 清空读卡器缓冲区 */  
+ 277   4                                      while(S2CON&S2RI)
+ 278   4                                      {
+ 279   5                                              S2CON&=~S2RI;
+ 280   5                                              temp2=S2BUF;
+ 281   5                                      }
+ 282   4                                      flag2 = 0;
+ 283   4                                      start_interrupt();
+ 284   4                                      
+ 285   4                              }
+ 286   3              }
+ 287   2                      handle_message();
+ 288   2                      recv_lock = 0;
+ 289   2                      
+ 290   2              }
+ 291   1      }
+ 292          /* 延时函数 */
+ 293          void sound_delay(unsigned int z)
+ 294          {                                                                                                                                                                                          
+ 295   1          unsigned int i,j;
+ 296   1          for(i=z;i>0;i--)
+ 297   1              for(j=110;j>0;j--);
+ 298   1      } 
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   1107    ----
-   CONSTANT SIZE    =    101    ----
-   XDATA SIZE       =    210    ----
+   CODE SIZE        =   1224    ----
+   CONSTANT SIZE    =    116    ----
+C51 COMPILER V9.00   MAIN                                                                  02/12/2016 18:09:30 PAGE 6   
+
+   XDATA SIZE       =    311    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----

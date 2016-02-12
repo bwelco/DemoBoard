@@ -248,13 +248,15 @@
                 android:layout_height="fill_parent"
                 android:layout_below="@+id/one"
                 android:layout_gravity="center"
+
                 android:orientation="vertical"
 
                 android:paddingBottom="0dp">
 
                 <TextView
                     android:id="@+id/progressc"
-
+                    android:translationX="2dp"
+                    android:paddingRight="2dp"
                     android:layout_width="fill_parent"
                     android:layout_height="30dp"
                     android:gravity="center"
@@ -291,7 +293,7 @@
                             android:layout_width="fill_parent"
                             android:layout_height="fill_parent"
                             android:background="#00000000"
-                            android:text="LED"
+                            android:text="LED:未设置"
                             android:textColor="#FFFFFF" />
                     </LinearLayout>
 
@@ -301,7 +303,7 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="1"
                         android:background="@drawable/mybutton"
-                        android:text="开蜂鸣器"
+                        android:text="蜂鸣器:OFF"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
 
@@ -318,7 +320,7 @@
                         android:layout_weight="1"
 
                         android:background="@drawable/mybutton"
-                        android:text="设置红外联动"
+                        android:text="红外联动:OFF"
                         android:textColor="#E8E8E8" />
 
                     <Button
@@ -327,7 +329,7 @@
                         android:layout_height="fill_parent"
                         android:layout_weight="1"
                         android:background="@drawable/mybutton"
-                        android:text="设置声音联动"
+                        android:text="声音联动:OFF"
                         android:textColor="#E8E8E8" />
                 </LinearLayout>
 

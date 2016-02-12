@@ -55,7 +55,7 @@ extern int redlight_flag;
 extern int sound_flag;
 extern int steer_flag;
 extern int card_flag;
-extern char setcard_buf[20];
+extern char setcard_buf[15];
 extern int steer_degree;
 
 
@@ -71,6 +71,8 @@ extern void PCA_init();
 extern void system_init(void);
 extern int lock_2;
 extern int lock_3;
+extern int timeoutflag;
+extern int android_control_flag;
 
 extern void sendstr(char *str);
 extern char send_message[30];
@@ -171,6 +173,8 @@ extern void BH1750_SendByte(BYTE dat);         //IIC单个字节写
 extern BYTE BH1750_RecvByte();                 //IIC单个字节读
 extern void getled();
 extern char ledstr[50];
+extern void bpm_on();
+extern void bpm_off();
 //---------------lcd1602-----------------------
 extern void lcd_delay(int z);
 extern void write_com_1602_morefree (unsigned char com);
@@ -179,4 +183,5 @@ extern void init_1602_morefree();
 // void android_control_lcd1602();
 extern void normal_lcd1602_show();
 extern void welcome();
-extern int android_flag;
+
+extern int bpm_flag;

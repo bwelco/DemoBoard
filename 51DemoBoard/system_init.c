@@ -29,10 +29,17 @@ void system_init(void)
 	AUXR1 =  AUXR1 & 0xef;	//S2_P4=0,将uart2切换到P1口
 	IE2  =  IE2 | 0X01;	    //允许串口2中断
 	
-	IP2 = 0X00;
-	IPH2 = 0X00;
+//	IP2 = 0X00;
+//	IPH2 = 0X00;
 	//PSPI = 0;
 	//turn_90();
+
+	/*串口1 > PCA中断 > 串口2*/
+    IPH = 0X90;
+	IP = 0X10;
+	IP2H = 0X00;
+	IP2 = 0X01;
+
 	init_1602_morefree();
 	write_com_1602_morefree(0x80);
 	welcome();
@@ -76,9 +83,12 @@ void start_interrupt()
 	redlight = 1;
 	
 	
-	
-	init_1602_morefree();
-	write_com_1602_morefree(0x80);
+	/*串口1 > PCA中断 > 串口2*/
+    IPH = 0X90;
+	IP = 0X10;
+	IP2H = 0X00;
+	IP2 = 0X01;
+
 }
 
 void InitSteering(void)

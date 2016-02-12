@@ -120,7 +120,7 @@ sbit PX0      = IP^0;
 //                                         7      6      5     4     3     2     1     0    Reset Value
 sfr IPH   = 0xB7; //中断优先级高位       PPCAH  PLVDH  PADCH  PSH  PT1H  PX1H  PT0H  PX0H   0000,0000
 sfr IP2   = 0xB5; //                       -      -      -     -     -     -   PSPI   PS2   xxxx,xx00
-sfr IPH2  = 0xB6; //                       -      -      -     -     -     -   PSPIH  PS2H  xxxx,xx00
+sfr IP2H  = 0xB6; //                       -      -      -     -     -     -   PSPIH  PS2H  xxxx,xx00
 //-----------------------
 //新一代 1T 8051系列 单片机I/O 口特殊功能寄存器
 //                                      7     6     5     4     3     2     1     0         Reset Value

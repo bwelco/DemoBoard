@@ -19,8 +19,6 @@ void Uart() interrupt 4 using 1
 			strbuf[posi] = '\0';
 		    recv_lock = 1;
 			posi = 0;
-			//while(temp_lock == 0);
-			//handle_message();
 		}
 	}
 
@@ -75,19 +73,47 @@ void timer1(void) interrupt 3
 
 void PCA_isr() interrupt 7
 {	
-	CCF0 = 0;
-	CCAP0L = T_PCA0;
-	CCAP0H = T_PCA0 >> 8;
-	T_PCA0 += 46080;
-	cnt++;
-	if (cnt == 40)   //2s
+	if(android_control_flag == 0)		 //客户端不在线时
 	{
-		cnt = 0; //Count 40 times   
-		numcc = 0;
-		gettemperature();
-		getled();
-		normal_lcd1602_show();
-	}
+		CCF0 = 0;
+		CCAP0L = T_PCA0;
+		CCAP0H = T_PCA0 >> 8;
+		T_PCA0 += 46080;
+		cnt++;
+		if (cnt == 20)   //1s
+		{
+			cnt = 0; 
+			numcc = 0;
+			gettemperature();
+			getled();
+			normal_lcd1602_show();
+		}
+	 }
+	 if(android_control_flag == 1)	     //客户端在线时  心跳检测
+	 {
+	 	CCF0 = 0;
+		CCAP0L = T_PCA0;
+		CCAP0H = T_PCA0 >> 8;
+		T_PCA0 += 46080;
+		cnt++;
+		if (cnt == 20)   //1s
+		{
+			cnt = 0; 
+			timeoutflag++;
+			if(timeoutflag == 5)  //5s超时检测
+			{
+				bpm_on();
+				Delay500ms();
+				bpm_off();
+				android_control_flag = 0;   //跳到正常循环
+			}
+		}
+
+	 }
 }
+
+
+
+
 
 

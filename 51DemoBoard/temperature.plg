@@ -3,11 +3,11 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Project:</h2>
-C:\Users\Administrator\Desktop\新建文件夹 (3)\51DemoBoard\temperature.uvproj
-Project File Date:  09/14/2015
+C:\Users\bwelco\Desktop\51DemoBoard\temperature.uvproj
+Project File Date:  01/28/2016
 
 <h2>Output:</h2>
-Rebuild target 'Target 1'
+Build target 'Target 1'
 compiling main.c...
 compiling system_init.c...
 compiling tempture.c...
@@ -31,10 +31,32 @@ linking...
     SEGMENT: ?PR?BH1750_SENDACK?LIGHT
     CALLER1: ?PR?PCA_ISR?INTERRUPT
     CALLER2: ?C_C51STARTUP
-Program Size: data=29.2 xdata=544 code=12380
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3587H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F1DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 120AH
+Program Size: data=29.2 xdata=643 code=13720
 creating hex file from "temperature"...
-"temperature" - 0 Error(s), 4 Warning(s).
-Rebuild target 'Target 1'
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
 compiling main.c...
 compiling system_init.c...
 compiling tempture.c...
@@ -58,6 +80,412 @@ linking...
     SEGMENT: ?PR?BH1750_SENDACK?LIGHT
     CALLER1: ?PR?PCA_ISR?INTERRUPT
     CALLER2: ?C_C51STARTUP
-Program Size: data=29.2 xdata=544 code=12380
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3587H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F1DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 120AH
+Program Size: data=29.2 xdata=643 code=13720
 creating hex file from "temperature"...
-"temperature" - 0 Error(s), 4 Warning(s).
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3586H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F1DH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 120AH
+Program Size: data=29.2 xdata=643 code=13719
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+compiling handle_message.c...
+handle_message.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+compiling handle_message.c...
+handle_message.c - 0 Error(s), 0 Warning(s).
+compiling handle_message.c...
+handle_message.c - 0 Error(s), 0 Warning(s).
+compiling handle_message.c...
+handle_message.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3571H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 357DH
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F19H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 1204H
+Program Size: data=29.2 xdata=643 code=13710
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling system_init.c...
+compiling tempture.c...
+compiling steering.c...
+compiling handle_message.c...
+compiling interrupt.c...
+compiling light.c...
+compiling lcd1602.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SOUND_DELAY?MAIN
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?PRINTF?PRINTF
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?NORMAL_LCD1602_SHOW?LCD1602
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?BH1750_SENDACK?LIGHT
+    CALLER1: ?PR?PCA_ISR?INTERRUPT
+    CALLER2: ?C_C51STARTUP
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3579H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  steering.obj (STEERING)
+    ADDRESS: 3585H
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 0F21H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  BPM_FLAG
+    MODULE:  handle_message.obj (HANDLE_MESSAGE)
+    ADDRESS: 120CH
+Program Size: data=29.2 xdata=643 code=13718
+creating hex file from "temperature"...
+"temperature" - 0 Error(s), 10 Warning(s).

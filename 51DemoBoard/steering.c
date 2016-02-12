@@ -19,6 +19,17 @@ unsigned int turn(int degree)
 	temp = (unsigned int)temp2;
 	return temp;
 }
+void bpm_on()
+{
+	bpm = 1;
+	bpm_flag = 1;
+}
+
+void bpm_off()
+{
+	bpm = 0;
+	bpm_flag = 0;
+}
 /*
 void turn_90()
 {

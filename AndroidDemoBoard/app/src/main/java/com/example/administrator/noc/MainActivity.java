@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     Button sound;
     Button exit;
     Button setliandong;
+    boolean canrefreshflag = true;
     View view;
     PopupWindow pop;
     boolean refreshflag = false;
@@ -157,19 +158,22 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         progressc.setTextColor((Color.parseColor("#FFFFFF")));
         progressc.setTextSize(15);
 
-        //dialog = ProgressDialog.show(MainActivity.this, null, "正在连接中...");
+        dialog = ProgressDialog.show(MainActivity.this, null, "正在连接中...");
 
+       // final Thread canrefresh =  new Thread(new ThreadShow());
 
-       // Thread t = new Thread(new Bluetoothrun());
-       // t.start();
-      //  Bluetoothopen();
-        //BloothInit();
+        Thread t = new Thread(new Bluetoothrun());
+        t.start();
+        //Bluetoothopen();
+       // BloothInit();
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     mysocket.handle_mes("GETTEMPERATURE*");
+
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -181,6 +185,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onClick(View v) {
                 try {
                     mysocket.handle_mes("GETHUNIDITY*");
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -192,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onClick(View v) {
                 try {
                     mysocket.handle_mes("GETLIGHT*");
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -218,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 progressc.setText("舵机角度值:" + progresstemp + "");
                 try {
                     mysocket.handle_mes("SETSTEER" + progresstemp + "*");
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -243,11 +250,13 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         switch (which) {
                             case 0: {
                                 try {
+                                    mysocket.handle_mes("SETMYLED" + "111" + "*");
                                     mysocket.handle_mes("SETRGB" + "111" + "*");
-                                    setled.setBackgroundColor(Color.parseColor("#00000000"));
+
+                                   // setled.setBackgroundColor(Color.parseColor("#00000000"));
                                     // setled.setAlpha(1);
                                     //setled.setBackground(getDrawable(R.drawable.mybutton));
-                                    setled.setTextColor(Color.parseColor("#FFFFFF"));
+                                  //  setled.setTextColor(Color.parseColor("#FFFFFF"));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -255,11 +264,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 1: {
                                 try {
-
-                                    mysocket.handle_mes("SETRGB" + "011" + "*");
                                     mysocket.handle_mes("SETMYLED" + "011" + "*");
-                                    setled.setBackgroundColor(Color.rgb(255, 0, 0));
-                                    setled.setTextColor(Color.rgb(0, 255, 255));
+                                    mysocket.handle_mes("SETRGB" + "011" + "*");
+
+                                   // setled.setBackgroundColor(Color.rgb(255, 0, 0));
+                                  //  setled.setTextColor(Color.rgb(0, 255, 255));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -267,10 +276,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 2: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "101" + "*");
                                     mysocket.handle_mes("SETMYLED" + "101" + "*");
-                                    setled.setBackgroundColor(Color.rgb(0, 255, 0));
-                                    setled.setTextColor(Color.rgb(255, 0, 255));
+                                    mysocket.handle_mes("SETRGB" + "101" + "*");
+
+                                  //  setled.setBackgroundColor(Color.rgb(0, 255, 0));
+                                   // setled.setTextColor(Color.rgb(255, 0, 255));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -278,10 +288,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 3: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "110" + "*");
                                     mysocket.handle_mes("SETMYLED" + "110" + "*");
-                                    setled.setBackgroundColor(Color.rgb(0, 0, 255));
-                                    setled.setTextColor(Color.rgb(255, 255, 0));
+
+                                    mysocket.handle_mes("SETRGB" + "110" + "*");
+
+                                   // setled.setBackgroundColor(Color.rgb(0, 0, 255));
+                                   // setled.setTextColor(Color.rgb(255, 255, 0));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -289,10 +301,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 4: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "100" + "*");
                                     mysocket.handle_mes("SETMYLED" + "100" + "*");
-                                    setled.setBackgroundColor(Color.rgb(0, 255, 255));
-                                    setled.setTextColor(Color.rgb(255, 0, 0));
+
+                                    mysocket.handle_mes("SETRGB" + "100" + "*");
+
+                                  //  setled.setBackgroundColor(Color.rgb(0, 255, 255));
+                                  //  setled.setTextColor(Color.rgb(255, 0, 0));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -300,10 +314,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 5: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "001" + "*");
                                     mysocket.handle_mes("SETMYLED" + "001" + "*");
-                                    setled.setBackgroundColor(Color.rgb(255, 255, 0));
-                                    setled.setTextColor(Color.rgb(0, 0, 255));
+
+                                    mysocket.handle_mes("SETRGB" + "001" + "*");
+
+                                  //  setled.setBackgroundColor(Color.rgb(255, 255, 0));
+                                   // setled.setTextColor(Color.rgb(0, 0, 255));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -311,10 +327,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                             }
                             case 6: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "010" + "*");
                                     mysocket.handle_mes("SETMYLED" + "010" + "*");
-                                    setled.setBackgroundColor(Color.rgb(255, 0, 255));
-                                    setled.setTextColor(Color.rgb(0, 255, 0));
+
+                                    mysocket.handle_mes("SETRGB" + "010" + "*");
+
+                                   // setled.setBackgroundColor(Color.rgb(255, 0, 255));
+                                   // setled.setTextColor(Color.rgb(0, 255, 0));
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
@@ -323,11 +341,15 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                             case 7: {
                                 try {
-                                    mysocket.handle_mes("SETRGB" + "000" + "*");
                                     mysocket.handle_mes("SETMYLED" + "000" + "*");
-                                    setled.setBackgroundColor(Color.rgb(255, 255, 255));
-                                    setled.setTextColor(Color.rgb(0, 0, 0));
+                                    Thread.sleep(200);
+                                    mysocket.handle_mes("SETRGB" + "000" + "*");
+
+                                   // setled.setBackgroundColor(Color.rgb(255, 255, 255));
+                                  //  setled.setTextColor(Color.rgb(0, 0, 0));
                                 } catch (IOException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                                 break;
@@ -343,15 +365,16 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         bpmbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     if (bpm_state == false) {
                         mysocket.handle_mes("BPMON*");
-                        bpmbutton.setText("关蜂鸣器");
+                        bpmbutton.setText("蜂鸣器:ON");
                         bpmbutton.setBackgroundColor(Color.rgb(255, 195, 0));
                         bpm_state = true;
                     } else {
                         mysocket.handle_mes("BPMOFF*");
-                        bpmbutton.setText("开蜂鸣器");
+                        bpmbutton.setText("蜂鸣器:OFF");
                         bpmbutton.setBackgroundColor(Color.parseColor("#00000000"));
                         bpm_state = false;
                     }
@@ -364,6 +387,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         redlight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (redlightflag == false) {
                     try {
                         mysocket.handle_mes("LIGHTFLAG1*");
@@ -371,14 +395,14 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         e.printStackTrace();
                     }
                     redlightflag = true;
-                    redlight.setText("红外联动：ON");
+                    redlight.setText("红外联动:ON");
                 } else {
                     try {
                         mysocket.handle_mes("LIGHTFLAG0*");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    redlight.setText("红外联动：OFF");
+                    redlight.setText("红外联动:OFF");
                     redlightflag = false;
                 }
             }
@@ -394,7 +418,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         e.printStackTrace();
                     }
                     soundflag = true;
-                    sound.setText("声音联动：ON");
+                    sound.setText("声音联动:ON");
                 } else {
                     try {
                         mysocket.handle_mes("SOUNDFLAG0*");
@@ -402,7 +426,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                         e.printStackTrace();
                     }
                     soundflag = false;
-                    sound.setText("声音联动：OFF");
+                    sound.setText("声音联动:OFF");
                 }
             }
         });
@@ -569,6 +593,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
                 if (dev.getName().contains("HC-05")) {
                     device = dev;
+                    System.out.println("asd");
                     break;
                 }
             }
@@ -588,7 +613,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             t.start();
         }
     }
-
+/*
     public void Bluetoothopen() {
         BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
         if (adapter == null) {
@@ -627,7 +652,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         t.start();
     }
 
-
+*/
     private android.os.Handler handler = new android.os.Handler() {
 
         @Override
@@ -774,11 +799,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     sound.setText(temp);
                     if ((temp.charAt(0)) == '0') {
                         soundflag = false;
-                        sound.setText("声音联动：OFF");
+                        sound.setText("声音联动:OFF");
                     }
                     if ((temp.charAt(0)) == '1') {
                         soundflag = true;
-                        sound.setText("声音联动：ON");
+                        sound.setText("声音联动:ON");
                     }
                     break;
                 }
@@ -786,11 +811,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 case Finalint.REDLIGHT: {
                     String temp = msg.getData().getString("readbuff").substring(11);
                     if (temp.equals("0")) {
-                        redlight.setText("红外联动：OFF");
+                        redlight.setText("红外联动:OFF");
                         redlightflag = false;
                     }
                     if (temp.equals("1")) {
-                        redlight.setText("红外联动：ON");
+                        redlight.setText("红外联动:ON");
                         redlightflag = true;
                     }
                     break;
@@ -816,6 +841,48 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     System.exit(0);
                 }
 
+                case Finalint.RGB: {
+                    /* RGB = 121*/
+                    System.out.println("im here");
+                    String temp = msg.getData().getString("readbuff");
+                    char a = temp.charAt(6);
+                    char b = temp.charAt(7);
+                    char c = temp.charAt(8);
+                    System.out.println("rgb:"+a+b+c);
+                    if(a == '1' && b == '1' && c == '1')
+                    {
+                        setled.setText("LED:未设置");
+                    }
+                    if(a == '0' && b == '1' && c == '1')
+                    {
+                        setled.setText("LED:红色");
+                    }
+                    if(a == '1' && b == '0' && c == '1')
+                    {
+                        setled.setText("LED:绿色");
+                    }
+                    if(a == '1' && b == '1' && c == '0')
+                    {
+                        setled.setText("LED:蓝色");
+                    }
+                    if(a == '1' && b == '0' && c == '0')
+                    {
+                        setled.setText("LED:青色");
+                    }
+                    if(a == '0' && b == '0' && c == '1')
+                    {
+                        setled.setText("LED:黄色");
+                    }
+                    if(a == '0' && b == '1' && c == '0')
+                    {
+                        setled.setText("LED:品红");
+                    }
+                    if(a == '0' && b == '0' && c == '0')
+                    {
+                        setled.setText("LED:白色");
+                    }
+                }
+
                 case Finalint.REFRESH: {
                     if (refreshflag == true) {
                         swipeRefreshLayout.setRefreshing(false);
@@ -823,6 +890,19 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                                 Toast.LENGTH_SHORT).show();
                     }
                     refreshflag = false;
+                }
+
+                case Finalint.BPMSTATE: {
+                    if(msg.getData().getString("readbuff") == "bpm = 1")
+                    {
+                        bpmbutton.setText("蜂鸣器:ON");
+                        bpmbutton.setBackgroundColor(Color.rgb(255, 195, 0));
+                    }
+                    if(msg.getData().getString("readbuff") == "bpm = 0")
+                    {
+                        bpmbutton.setText("蜂鸣器:OFF");
+                        bpmbutton.setBackgroundColor(Color.rgb(255, 195, 0));
+                    }
                 }
             }
 

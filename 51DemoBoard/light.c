@@ -228,7 +228,7 @@ void getled()
 
     conversion(temp);               //计算数据和显示
 	light_compare = (wan-'0') * 10000 + (qian-'0') * 1000 + (bai-'0') * 100 + (shi-'0') * 10 + (ge-'0');
-	sprintf(ledstr, "light = %d\n",light_compare);
+	sprintf(ledstr, "*light = %d#\n",light_compare);
     sprintf(ledstr2, "Light = %d", light_compare);
 }
 

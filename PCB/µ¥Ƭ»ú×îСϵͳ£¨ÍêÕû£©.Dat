@@ -1,0 +1,28 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~单片机最小系统（完整）.PrjPcb|ReportField=ProjectFullPath~C:\Users\Administrator\Desktop\开发板\PCB\单片机最小系统（完整）.PrjPcb|ReportField=Title~Bill of Materials For Project [单片机最小系统（完整）.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~37|ReportField=ReportTime~19:45:40|ReportField=ReportDate~2015/11/22|ReportField=ReportDateTime~2015/11/22 19:45:40|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~2015/11/22|ReportField=CurrentTime~19:43:25|ReportField=Date~|ReportField=DocumentFullPathAndName~C:\Users\Administrator\Desktop\开发板\PCB\pic1.Sch|ReportField=DocumentName~pic1.Sch|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~2015/11/22|ReportField=Organization~|ReportField=ProjectName~单片机最小系统（完整）.PrjPcb|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~0|ReportField=SheetTotal~0|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~单片机最小系统（完整）.PrjPcb|ReportField=DataSourceFullPath~C:\Users\Administrator\Desktop\开发板\PCB\单片机最小系统（完整）.PrjPcb
+30pF|Capacitor|C1, C2|RAD-0.1|CAP|2
+10u|Electrolytic Capacitor|CT1|CT|ELECTRO1|1
+1n4007|1 Amp General Purpose Rectifier|D1, D2, D3|DO-41|Diode 1N4007|3
+读卡器|Header, 5-Pin|DK1|HDR1X5|Header 5|1
+USB|USB接口|J|USB_B1|USB|1
+电源|Low Voltage Power Supply Connector|J1|KLD-0202|PWR2.5|1
+16PIN||JP3|HDR1X16|16PIN|1
+LED||LED1|LED|LED|1
+DTH11|Header, 3-Pin|P1|HDR1X3|Header 3|1
+光照|Header, 5-Pin|P2|HDR1X5|Header 5|1
+LED|Header, 4-Pin|P3|HDR1X4|Header 4|1
+Header 2|Header, 2-Pin|P5, P6, P7|HDR1X2|Header 2|3
+声音|Header, 3-Pin|P8|HDR1X3|Header 3|1
+红外|Header, 3-Pin|P9|HDR1X3|Header 3|1
+舵机|Header, 3-Pin|P10|HDR1X3|Header 3|1
+蜂鸣器|Header, 3-Pin|P11|HDR1X3|Header 3|1
+蓝牙2|Header, 6-Pin|P13|HDR1X6|Header 6|1
+8550|PNP General Purpose Amplifier|Q1, Q2, Q3|TO-92A|2N3906|3
+10k|[NoValue], Resistor|R1, R10|AXIAL-0.3|RES2|2
+20k||R2|AXIAL-0.3|RES2|1
+Res2|Resistor|RM1, RM2, RM3|AXIAL-0.4|Res2|3
+按键|DIP Switch, 3 Position, SPST|S1|DIP-6|SW DIP-3|1
+SW DIP-2|DIP Switch, 2 Position, SPST|S2|DIP-4|SW DIP-2|1
+80C52||U1|51|80C52|1
+上拉电阻|Header, 9-Pin|UP|HDR1X9|Header 9|1
+10k|Potentiometer|W1|WR|POT2|1
+11.0592M|Crystal|Y1|CRYSTAL5|CRYSTAL|1

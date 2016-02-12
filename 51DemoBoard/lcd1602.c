@@ -64,7 +64,7 @@ void normal_lcd1602_show()
 {
 	int i = 0;
 	write_com_1602_morefree(0x80);
-	if(TH > 70)
+	if(TH > 50)
 	{
 		sprintf(tab1, "  T:OFF  R:OFF       ", TH, RH);
 		sprintf(tab2, "   %s     ", ledstr2);
@@ -93,7 +93,7 @@ void welcome()
 {
 	int i = 0;
 	write_com_1602_morefree(0x80);
-    sprintf(tab1, "    Welcome      ");
+    sprintf(tab1, "  51DemoBoard      ");
 	sprintf(tab2, "   Starting...          ");
 	for(i=0;i<strlen(tab1);i++)
 	{
