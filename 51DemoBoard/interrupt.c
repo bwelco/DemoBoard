@@ -100,7 +100,7 @@ void PCA_isr() interrupt 7
 		{
 			cnt = 0; 
 			timeoutflag++;
-			if(timeoutflag == 5)  //5s³¬Ê±¼ì²â
+			if(timeoutflag == 3)  //5s³¬Ê±¼ì²â
 			{
 				bpm_on();
 				Delay500ms();

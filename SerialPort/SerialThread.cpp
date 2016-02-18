@@ -60,7 +60,7 @@ void SerialThread::run()
             port->readLine(RetInfo, 100);
             QThread::usleep(10000);
           //  qDebug() << "ret:" << RetInfo;
-            if( StartsWith(RetInfo, "*return") )
+            if( StartsWith(RetInfo, (char*)"*return") )
             {
                 /*连接成功*/
                 port->close();  //关闭串口,到MainApplicationUI中再次打开

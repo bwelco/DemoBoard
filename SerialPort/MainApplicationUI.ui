@@ -234,7 +234,7 @@ background-color: rgba(255, 255, 255, 0);</string>
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>249</y>
+     <y>248</y>
      <width>359</width>
      <height>49</height>
     </rect>
@@ -296,7 +296,7 @@ background-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>297</y>
+     <y>296</y>
      <width>180</width>
      <height>45</height>
     </rect>
@@ -315,7 +315,7 @@ border-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>178</x>
-     <y>297</y>
+     <y>296</y>
      <width>180</width>
      <height>45</height>
     </rect>
@@ -334,7 +334,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>341</y>
+     <y>340</y>
      <width>180</width>
      <height>41</height>
     </rect>
@@ -353,7 +353,7 @@ border-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>178</x>
-     <y>341</y>
+     <y>340</y>
      <width>180</width>
      <height>41</height>
     </rect>
@@ -372,7 +372,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-2</x>
-     <y>382</y>
+     <y>381</y>
      <width>180</width>
      <height>36</height>
     </rect>
@@ -390,7 +390,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>1</x>
-      <y>-3</y>
+      <y>-1</y>
       <width>180</width>
       <height>36</height>
      </rect>
@@ -411,7 +411,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>178</x>
-     <y>382</y>
+     <y>381</y>
      <width>180</width>
      <height>36</height>
     </rect>
@@ -429,7 +429,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-3</y>
+      <y>-1</y>
       <width>180</width>
       <height>36</height>
      </rect>
@@ -450,7 +450,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-3</x>
-     <y>414</y>
+     <y>415</y>
      <width>361</width>
      <height>36</height>
     </rect>
@@ -469,7 +469,7 @@ border-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-3</x>
-     <y>449</y>
+     <y>450</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -489,7 +489,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>177</x>
-     <y>449</y>
+     <y>450</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -509,7 +509,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-3</x>
-     <y>484</y>
+     <y>485</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -529,7 +529,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-3</x>
-     <y>519</y>
+     <y>520</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -549,7 +549,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>177</x>
-     <y>484</y>
+     <y>485</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -569,7 +569,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>177</x>
-     <y>519</y>
+     <y>520</y>
      <width>181</width>
      <height>36</height>
     </rect>
@@ -589,7 +589,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-3</x>
-     <y>554</y>
+     <y>555</y>
      <width>361</width>
      <height>36</height>
     </rect>
@@ -608,7 +608,7 @@ border-color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>589</y>
+     <y>590</y>
      <width>361</width>
      <height>31</height>
     </rect>
@@ -745,6 +745,35 @@ color: rgb(255, 255, 255);</string>
     <string>输出三</string>
    </property>
   </widget>
+  <zorder>horizontalWidget</zorder>
+  <zorder>TempBackView</zorder>
+  <zorder>humidityBackView</zorder>
+  <zorder>LightBackView</zorder>
+  <zorder>verticalFrame</zorder>
+  <zorder>frame</zorder>
+  <zorder>ledbutton</zorder>
+  <zorder>bpmbutton</zorder>
+  <zorder>redlightbutton</zorder>
+  <zorder>soundbutton</zorder>
+  <zorder>frame_2</zorder>
+  <zorder>frame_3</zorder>
+  <zorder>setbutton1</zorder>
+  <zorder>temp_max</zorder>
+  <zorder>temp_min</zorder>
+  <zorder>humi_max</zorder>
+  <zorder>light_max</zorder>
+  <zorder>humi_min</zorder>
+  <zorder>light_min</zorder>
+  <zorder>setbutton2</zorder>
+  <zorder>frame_4</zorder>
+  <zorder>out1button</zorder>
+  <zorder>label_2</zorder>
+  <zorder>out2button</zorder>
+  <zorder>out3button</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>steer_set</zorder>
+  <zorder>cardid_set</zorder>
  </widget>
  <resources/>
  <connections/>

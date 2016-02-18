@@ -88,6 +88,16 @@ MainApplicationUI::MainApplicationUI(QString comm, QWidget *parent) :
     this->slider->installEventFilter(this);
     this->slider->setMaximum(180);
     this->slider->setMinimum(0);
+
+   // QRegExpValidator *validator = new QRegExpValidator(QRegExp("^[0-9]*$"), this);
+    //QIntValidator* validator = new QIntValidator(-20, 70, this);
+    this->ui->temp_max->setValidator(new QIntValidator(-20, 70, this));
+    this->ui->temp_min->setValidator(new QIntValidator(-20, 70, this));
+    this->ui->humi_max->setValidator(new QIntValidator(-20, 70, this));
+    this->ui->humi_min->setValidator(new QIntValidator(-20, 70, this));
+    this->ui->light_max->setValidator(new QIntValidator(1, 10000, this));
+    this->ui->light_min->setValidator(new QIntValidator(0, 10000, this));
+
     emit this->SearchClose();
 
 }
@@ -580,7 +590,7 @@ void MainApplicationUI::RecvMessageTOUpdateUI(QString mess)
 void MainApplicationUI::closeEvent(QCloseEvent *event)
 {
     //TODO: 在退出窗口之前，实现希望做的操作
-
+    event = NULL;
     port->close();
 }
 

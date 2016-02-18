@@ -39,6 +39,8 @@ QMAKE_CXXFLAGS += -std=c++11
 
 DISTFILES +=
 
+UI_DIR += ./UI
+
 RESOURCES += \
     resource.qrc
 CONFIG += thread

@@ -145,7 +145,7 @@ void SearchForSerialPort::RecvUI(QString message)
 
         thread->exit();
         wt = new MainApplicationUI(message, NULL);
-        wt->setFixedSize(357,618);
+        wt->setFixedSize(357,610);
         wt->show();
         wt->setWindowTitle("物联网创新设计");
         this->close();
